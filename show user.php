@@ -1,3 +1,13 @@
+<?php 
+    session_start();
+      if(!isset($_SESSION['user'])) {
+        echo "<script>
+            alert('Maaf sebelum akses halaman ini, harap login terlebih dahulu !');
+            document.location='login.php';
+            </script>";
+      }else{
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +26,13 @@
 <body>
     <div class="container">
         <h2 align="center">Data Pengguna</h2>
-        <a href="tambah user.php" class="btn btn-dark mt-3">Tambah Pengguna</a>
+        <table>
+            <tr>
+                <td><a href="tambah user.php" class="btn btn-success mt-3">Tambah Pengguna</a></td>
+                <td width="50"></td>
+                <td><a href="logout.php" class="btn btn-dark mt-3">Logout</a></td>
+            </tr>
+        </table>
         <table class="table table-bordered" style="margin-top: 30px;">
             <thead class="thead-light">
                 <tr>
@@ -51,3 +67,5 @@
     </div>
 </body>
 </html>
+
+<?php } ?>

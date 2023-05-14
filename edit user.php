@@ -1,3 +1,13 @@
+<?php 
+    session_start();
+      if(!isset($_SESSION['user'])) {
+        echo "<script>
+            alert('Maaf sebelum akses halaman ini, harap login terlebih dahulu !');
+            document.location='login.php';
+            </script>";
+      }else{
+?>
+
 <?php
 include "koneksi.php";
 $id = $_GET['id'];
@@ -110,3 +120,5 @@ if(isset($_POST['submit'])){
 
 </body>
 </html>
+
+<?php } ?>
